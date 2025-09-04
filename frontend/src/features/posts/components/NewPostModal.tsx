@@ -1,4 +1,4 @@
-import { Button, InputText, Text } from "@/components";
+import { Button, ErrorMessage, InputText, Text } from "@/components";
 import { InputTexarea } from "@/components/Input/InputTexarea";
 import { Modal } from "@/components/Modal";
 import apiService from "@/services";
@@ -11,11 +11,12 @@ import { useState } from "react";
 
 export const NewPostModal = () => {
   /**
-   * Form state
+   *  State
    */
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [open, setOpen] = useState(false);
+  const [error, setError] = useState("");
 
   /**
    * Query client
@@ -35,7 +36,7 @@ export const NewPostModal = () => {
       closeModal();
     },
     onError: (err) => {
-      console.error({ err });
+      setError(err.message);
     },
   });
 
@@ -62,6 +63,7 @@ export const NewPostModal = () => {
       contentClassName="!max-w-2xl"
     >
       <form className="grid gap-4 mt-2" onSubmit={handleSubmit}>
+        <ErrorMessage error={error} />
         <InputText
           onChange={(e) => setTitle((e.target as HTMLInputElement).value)}
           id="title"

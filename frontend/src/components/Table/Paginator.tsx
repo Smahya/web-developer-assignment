@@ -16,7 +16,6 @@ export const Paginator = ({
 }) => {
   const pages = useMemo(
     () => generateDottedPages(total, pageSize, page),
-
     [total, pageSize, page]
   );
 

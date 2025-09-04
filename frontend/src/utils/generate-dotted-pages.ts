@@ -4,10 +4,20 @@ export const generateDottedPages = (
   pageSize: number,
   page: number
 ) => {
+  if (total <= 0 || pageSize <= 0 || page <= 0) {
+    return [];
+  }
+
   const pages: number[] = [];
   const finalPages: (number | string)[] = [];
+  const totalPages = Math.ceil(total / pageSize);
 
-  for (let i = 1; i <= total / pageSize; i++) {
+  // If only one page or less, return appropriate result
+  if (totalPages <= 1) {
+    return totalPages === 1 ? [1] : [];
+  }
+
+  for (let i = 1; i <= totalPages; i++) {
     pages.push(i);
   }
   const dots = "...";
