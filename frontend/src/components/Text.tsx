@@ -7,7 +7,7 @@ type AllowedElements = Extract<
   "p" | "span" | "h2" | "div"
 >;
 
-export type TypographyVariant = "h2" | "p";
+export type TypographyVariant = "h2" | "h3" | "p" | "h6";
 type className = React.HTMLAttributes<HTMLElement>["className"];
 
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
@@ -34,6 +34,8 @@ export const Text: React.FC<TextProps> = ({
 };
 
 export const typography: Record<TypographyVariant, className> = {
-  h2: "font-medium text-6xl leading-[120%] tracking-[-2%] text-gray-900", // Display xl
-  p: "font-medium text-sm leading-[120%] tracking-[-2%] text-gray-600", // Text Preset 4
+  h2: "font-medium text-6xl leading-[120%]  text-gray-900", // Display xl
+  h3: "font-medium text-4xl leading-[120%]  text-gray-900", // Display lg
+  h6: "font-medium text-xl leading-[120%]  text-gray-900", // Display md
+  p: "font-normal text-sm leading-[120%]  text-gray-600", // Text Preset 4
 } as const;

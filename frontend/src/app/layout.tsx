@@ -22,7 +22,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} antialiased h-screen`}>
         <Providers>
-          <div className="max-w-4xl mx-auto h-full pt-20">{children}</div>
+          <div className="w-4xl max-w-[90vw] mx-auto h-auto min-h-full py-20">
+            {children}
+          </div>
         </Providers>
       </body>
     </html>

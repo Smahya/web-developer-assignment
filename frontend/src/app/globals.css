@@ -1,22 +1,43 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-}
+@import "tw-animate-css";
+@import "./shadcn-variables.css";
 
 @theme inline {
   --font-inter: var(--font-inter);
 
+  --shadow-custom: 0px 2px 4px -2px #0a0d120f, 0px 4px 8px -2px #0a0d121a;
+  --shadow-custom-2: 0px 4px 8px -3px #0000001a, 1px 10px 20px -5px #00000014;
+
+  /* Gray */
   --color-gray-900: #181d27;
   --color-gray-700: #334155;
   --color-gray-600: #535862;
+  --color-gray-300: #d5d7da;
   --color-gray-200: #e9eaeb;
+  /* Brand */
   --color-brand-600: #7f56d9;
   --color-brand-50: #f9f5ff;
+  /* Red */
+  --color-red-400: #f9566a;
+
+  --breakpoint-mdx: 996px;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Inter;
+@layer base {
+  body {
+    font-family: Inter;
+  }
+  button {
+    cursor: pointer;
+  }
 }
+
+/* 
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+} */
