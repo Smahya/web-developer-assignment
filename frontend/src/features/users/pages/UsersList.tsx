@@ -12,7 +12,7 @@ export default function UsersListPage() {
   const { data: usersData, setQuery, query, isLoading } = useUsersList();
 
   return (
-    <div className="grid gap-6 px-4">
+    <div className="grid gap-6 md:px-4">
       <Text variant="h2">Users</Text>
 
       <TableComponent<User>
@@ -44,7 +44,7 @@ const userColumns: TableColumn<User>[] = [
   {
     key: "address",
     label: "Address",
-    width: "50%",
+    width: "392px",
     render: (_, row) => {
       if (!row.address) return <span>-</span>;
 

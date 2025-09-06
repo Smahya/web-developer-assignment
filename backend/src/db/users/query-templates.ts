@@ -18,5 +18,6 @@ LIMIT ?, ?
 
 export const selectCountOfUsersTemplate = `
 SELECT COUNT(*) as count
-FROM users
+FROM users u
+LEFT JOIN addresses a ON u.id = a.user_id
 `;

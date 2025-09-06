@@ -17,9 +17,9 @@ export const TableComponent = <
   setPage,
 }: TableProps<T>) => {
   return (
-    <div>
-      <div className="rounded-lg border border-gray-200">
-        <table className="w-full table-fixed">
+    <div className="w-full grid grid-cols-[100%]">
+      <div className="w-full rounded-lg border border-gray-200 overflow-x-auto">
+        <table className="w-full table-fixed min-w-2xl">
           <thead>
             <tr>
               {columns.map((column) => (
@@ -51,8 +51,8 @@ export const TableComponent = <
           </tbody>
         </table>
       </div>
-      {total && !loading ? (
-        <div className="max-w-xl ml-auto mt-6">
+      {total ? (
+        <div className="md:max-w-xl md:ml-auto mt-6">
           <Paginator
             total={total}
             pageSize={pageSize}

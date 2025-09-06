@@ -1,6 +1,7 @@
 import ArrowLeft from "@/assets/icons/arrow-left";
 import { cn } from "@/lib/utils";
 import { generateDottedPages } from "@/utils/generate-dotted-pages";
+import { useMediaQuery } from "@uidotdev/usehooks";
 import { useMemo } from "react";
 
 export const Paginator = ({
@@ -14,9 +15,13 @@ export const Paginator = ({
   pageSize: number;
   setPage: (page: number) => void;
 }) => {
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
+
+  const radius = isSmallScreen ? 1 : 2;
+
   const pages = useMemo(
-    () => generateDottedPages(total, pageSize, page),
-    [total, pageSize, page]
+    () => generateDottedPages(total, pageSize, page, radius),
+    [total, pageSize, page, radius]
   );
 
   function handlePageClick(page: number | string) {
@@ -34,12 +39,12 @@ export const Paginator = ({
     setPage(page - 1);
   }
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center gap-10">
       <NavigationButton onClick={handlePrev} disabled={page <= 1}>
         <ArrowLeft />
-        Previous
+        <span className="hidden md:block">Previous</span>
       </NavigationButton>
-      <div className="flex items-center overflow-x-auto gap-2">
+      <div className="flex items-center gap-2">
         {pages.map((pg, i) => (
           <PageButton
             page={pg as number}
@@ -53,7 +58,7 @@ export const Paginator = ({
         onClick={handleNext}
         disabled={page >= total / pageSize}
       >
-        Next
+        <span className="hidden md:block">Next</span>
         <ArrowLeft className="rotate-180" />
       </NavigationButton>
     </div>
@@ -93,7 +98,7 @@ function PageButton({
     <button
       onClick={onClick}
       className={cn(
-        "font-semibold p-1 rounded-md w-10 h-10 text-gray-600 hover:bg-brand-50 hover:text-brand-600 cursor-pointer",
+        "sm:text-sm text-xs font-semibold p-1 rounded-md sm:w-10 sm:h-10 w-6 h-6 text-gray-600 hover:bg-brand-50 hover:text-brand-600 cursor-pointer",
         isActive && "bg-brand-50 text-brand-600"
       )}
     >

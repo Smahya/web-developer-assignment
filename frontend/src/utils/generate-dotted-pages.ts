@@ -1,8 +1,8 @@
-export const RADIUS = 2;
 export const generateDottedPages = (
   total: number,
   pageSize: number,
-  page: number
+  page: number,
+  radius: number
 ) => {
   if (total <= 0 || pageSize <= 0 || page <= 0) {
     return [];
@@ -29,7 +29,7 @@ export const generateDottedPages = (
 
     const lastItem = finalPages[finalPages.length - 1];
 
-    const isWithinRadius = Math.abs(current - page) <= RADIUS;
+    const isWithinRadius = Math.abs(current - page) <= radius;
 
     if (isFirstPage || isLastPage || isWithinRadius) {
       finalPages.push(current);

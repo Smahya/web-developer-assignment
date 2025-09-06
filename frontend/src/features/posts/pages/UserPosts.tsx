@@ -18,7 +18,7 @@ export const UserPostsPage = ({ userId }: { userId: string }) => {
 
   return (
     <LoadingWrapper loading={isLoading}>
-      <div className="grid gap-6 px-4 mdx:max-w-full max-w-2xl mx-auto">
+      <div className="grid gap-6 max-w-[270px] sm:max-w-[564px] lg:max-w-full mx-auto">
         <div className="grid gap-4">
           <Button variant="link" onClick={() => router.push("/")}>
             <ArrowLeft /> Back to users

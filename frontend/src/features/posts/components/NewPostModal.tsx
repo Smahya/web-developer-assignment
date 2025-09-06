@@ -1,3 +1,4 @@
+import CirclePlus from "@/assets/icons/circle-plus";
 import { Button, ErrorMessage, InputText, Text } from "@/components";
 import { InputTexarea } from "@/components/Input/InputTexarea";
 import { Modal } from "@/components/Modal";
@@ -5,7 +6,6 @@ import apiService from "@/services";
 import { postsQueryKeys } from "@/services/posts";
 import { CreatePostData } from "@/types/shared";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { CirclePlus } from "lucide-react";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 
@@ -96,7 +96,7 @@ export const NewPostModal = () => {
 
 export const NewPostButton = () => {
   return (
-    <div className="grid place-items-center gap-2 content-center h-72 w-68 border-dashed border-2 border-gray-300 rounded-md cursor-pointer text-gray-600 font-medium">
+    <div className="grid place-items-center gap-2 content-center h-72 w-[270px] border-dashed border-2 border-gray-300 rounded-md cursor-pointer text-gray-600 font-medium">
       <CirclePlus />
       New Post
     </div>
