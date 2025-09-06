@@ -37,7 +37,10 @@ export const TableComponent = <
           <tbody>
             {loading ? (
               <tr>
-                <td colSpan={columns.length} className="text-center h-[210px]">
+                <td
+                  colSpan={columns.length}
+                  className="text-center h-[211.5px]"
+                >
                   <Loader />
                 </td>
               </tr>
@@ -112,7 +115,7 @@ function TableContent<
         </>
       ) : (
         <tr>
-          <td colSpan={columns.length} className="text-center h-[210px]">
+          <td colSpan={columns.length} className="text-center h-[211.5px]">
             <p className="text-gray-600">No data available</p>
           </td>
         </tr>
