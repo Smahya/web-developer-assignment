@@ -52,7 +52,7 @@ export const TableComponent = <
         </table>
       </div>
       {total ? (
-        <div className="md:max-w-xl md:ml-auto mt-6">
+        <div className="flex justify-end mt-6">
           <Paginator
             total={total}
             pageSize={pageSize}

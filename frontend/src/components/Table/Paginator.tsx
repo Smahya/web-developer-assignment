@@ -1,3 +1,5 @@
+"use client";
+
 import ArrowLeft from "@/assets/icons/arrow-left";
 import { cn } from "@/lib/utils";
 import { generateDottedPages } from "@/utils/generate-dotted-pages";

@@ -32,7 +32,6 @@ export interface ApiResponse<T> {
 
 export interface PaginatedResponse<T> extends ApiResponse<T[]> {
   data: T[];
-  count: number;
 }
 
 export interface PaginationParams {

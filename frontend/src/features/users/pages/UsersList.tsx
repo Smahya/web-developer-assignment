@@ -9,7 +9,13 @@ import { useRouter } from "next/navigation";
 
 export default function UsersListPage() {
   const router = useRouter();
-  const { data: usersData, setQuery, query, isLoading } = useUsersList();
+  const {
+    data: usersData,
+    setQuery,
+    query,
+    isLoading,
+    usersQueryCount,
+  } = useUsersList();
 
   return (
     <div className="grid gap-6 md:px-4">
@@ -18,7 +24,7 @@ export default function UsersListPage() {
       <TableComponent<User>
         columns={userColumns}
         data={usersData?.data || []}
-        total={usersData?.count || 0}
+        total={usersQueryCount.data || 0}
         loading={isLoading}
         page={query.pageNumber}
         pageSize={query.pageSize}

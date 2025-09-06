@@ -16,4 +16,5 @@ export const usersQueryKeys = {
   all: ["users"],
   lists: () => [...usersQueryKeys.all, "list"],
   list: (params: PaginationParams) => [...usersQueryKeys.lists(), params],
+  count: () => [...usersQueryKeys.all, "count"],
 };

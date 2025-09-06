@@ -14,18 +14,22 @@ export const useUsersList = () => {
   const usersQuery = useQuery<PaginatedResponse<User>, Error>({
     queryKey: [usersQueryKeys.list(query)],
     queryFn: async () => {
-      const [data, count] = await Promise.all([
-        apiService.users.getUsers(query),
-        apiService.users.getUsersCount(),
-      ]);
+      const data = await apiService.users.getUsers(query);
       return {
         data,
-        ...count,
         success: true,
         message: "Users fetched successfully",
       };
     },
   });
 
-  return { ...usersQuery, query, setQuery };
+  const usersQueryCount = useQuery<number, Error>({
+    queryKey: [usersQueryKeys.count()],
+    queryFn: async () => {
+      const count = await apiService.users.getUsersCount();
+      return count.count;
+    },
+  });
+
+  return { ...usersQuery, query, setQuery, usersQueryCount };
 };
